@@ -5,6 +5,10 @@ import Tagline from "./Tagline";
 import { roadmap } from "../constants";
 import { check2, grid, loading1 } from "../assets";
 import { Gradient } from "./design/Roadmap";
+import NetworkComponent from "./NetworkComponent";
+import cv from "../assets/cv.mp4";
+import robot from "../assets/hero/robot.png";
+import ant from "../assets/ant.mp4";
 
 const Roadmap = () => (
   <Section className="overflow-hidden" id="roadmap">
@@ -49,13 +53,10 @@ const Roadmap = () => (
                   </div>
 
                   <div className="mb-10 -my-10 -mx-15">
-                    <img
-                      className="w-full"
-                      src={item.imageUrl}
-                      width={628}
-                      height={426}
-                      alt={item.title}
-                    />
+                    {item.title === "Nueral Networks" && <NetworkComponent />}
+                    {item.title === "Computer Vision" && <video src={cv} loop autoPlay muted/>}
+                    {item.title === "Chatbot" && <img src={robot} />}
+                    {item.title === "Digital Twin" && <video src={ant} loop autoPlay muted/>}
                   </div>
                   <h4 className="h4 mb-4">{item.title}</h4>
                   <p className="body-2 text-n-4">{item.text}</p>
